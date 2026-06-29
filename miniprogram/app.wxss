@@ -106,6 +106,7 @@ page {
   border-radius: 50%;
   font-weight: 600;
   flex-shrink: 0;
+  margin-right: 178rpx;
 }
 
 .header-action:active { background: rgba(255,255,255,0.3); }

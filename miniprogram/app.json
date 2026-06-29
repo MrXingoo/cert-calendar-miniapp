@@ -10,7 +10,7 @@
     "pages/category-manage/category-manage"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#5B6EF5",
+    "navigationBarBackgroundColor": "#6366F1",
     "navigationBarTitleText": "证照清单",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f7f8fa",
@@ -18,7 +18,7 @@
   },
   "tabBar": {
     "color": "#8e8e93",
-    "selectedColor": "#5B6EF5",
+    "selectedColor": "#6366F1",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [

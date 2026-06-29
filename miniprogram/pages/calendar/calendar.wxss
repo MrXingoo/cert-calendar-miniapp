@@ -88,29 +88,34 @@
 
 .cal-cell.other { opacity: 0.3; }
 
-/* 今日 */
+/* 今日 - 圆和普通数字高度一致，不撑开格子 */
 .cal-cell.today .cell-num {
-  width: 48rpx;
-  height: 48rpx;
-  line-height: 48rpx;
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
   background: #6366F1;
   color: #fff;
   border-radius: 50%;
   text-align: center;
   font-weight: 700;
+  font-size: 26rpx;
+  display: inline-block;
 }
 
+/* 日期数字容器 - 固定高度保证所有格子顶部对齐 */
 .cell-top {
   display: flex;
   align-items: center;
-  gap: 4rpx;
-  padding-left: 3rpx;
-  align-self: flex-start;
+  justify-content: center;
+  gap: 3rpx;
+  height: 46rpx;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .cell-dot {
-  width: 10rpx;
-  height: 10rpx;
+  width: 8rpx;
+  height: 8rpx;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -119,16 +124,27 @@
   font-size: 28rpx;
   font-weight: 600;
   color: #1a1a1a;
-  line-height: 1.2;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44rpx;
+  height: 44rpx;
 }
 
 .cell-num.holiday { color: #EF4444; }
 
+/* 农历文字 - 固定高度，无内容也占位 */
 .cell-lunar {
   font-size: 18rpx;
   color: #b0b0b0;
-  margin-top: 1rpx;
-  line-height: 1.2;
+  height: 26rpx;
+  line-height: 26rpx;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .cell-lunar.holiday-text {
@@ -140,23 +156,26 @@
 .cell-events {
   width: calc(100% + 8rpx);
   margin-left: -4rpx;
-  margin-top: 3rpx;
+  margin-top: 2rpx;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rpx;
   overflow: visible;
+  justify-content: flex-start;
 }
 
 .event-bar {
   width: 100%;
   min-height: 36rpx;
+  height: 36rpx;
   display: flex;
   align-items: center;
   padding: 0 6rpx;
   overflow: hidden;
   border-radius: 0;
   opacity: 0.92;
+  flex-shrink: 0;
 }
 
 .event-bar.evt-single { border-radius: 6rpx; }

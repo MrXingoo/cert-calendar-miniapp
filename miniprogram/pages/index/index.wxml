@@ -1,11 +1,11 @@
 <!-- pages/index/index.wxml -->
-<view class="header">
+<view class="gradient-header">
   <view class="status-bar-spacer" style="height:{{statusBarHeight}}px"></view>
-  <view class="header-top">
-    <view class="avatar-wrap" style="margin-right:20rpx">
-      <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" class="avatar-img" mode="aspectFill" />
-      <text wx:else class="avatar-placeholder">🧑</text>
-      <button class="avatar-trigger" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
+  <view class="header-row">
+    <view class="header-avatar">
+      <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" mode="aspectFill" />
+      <text wx:else class="ph">🧑</text>
+      <button class="header-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
     </view>
     <view class="header-info">
       <view class="header-title">证照清单</view>
@@ -14,20 +14,27 @@
   </view>
 
   <!-- 统计 -->
-  <view class="stats">
-    <view class="stat" bindtap="onFilterTap" data-status="all">
-      <view class="stat-num {{filterStatus === 'all' ? 'active' : ''}}">{{stats.total}}</view>
-      <view class="stat-label">全部</view>
+  <view class="stats-bar">
+    <view class="stats-item" bindtap="onFilterTap" data-status="all">
+      <view class="stats-num">{{stats.total}}</view>
+      <view class="stats-label">全部</view>
     </view>
-    <view class="stat-divider"></view>
-    <view class="stat" bindtap="onWarnCardTap">
-      <view class="stat-num warn {{filterStatus === 'warn' ? 'active' : ''}}">{{stats.warn}}</view>
-      <view class="stat-label">即将到期 <text class="arrow">▾</text></view>
+    <view class="stats-divider"></view>
+    <view class="stats-item" bindtap="onWarnCardTap">
+      <view class="stats-num" style="color:#FFD93D">{{stats.warn}}</view>
+      <view class="stats-label">即将到期 ▾</view>
     </view>
+  </view>
+
+  <!-- 搜索栏嵌入渐变底部 -->
+  <view class="header-search">
+    <text class="hs-icon">🔍</text>
+    <input class="hs-input" placeholder="搜索证照..." value="{{keyword}}" bindinput="onSearchInput" />
+    <text class="hs-clear" wx:if="{{keyword}}" bindtap="clearSearch">✕</text>
   </view>
 </view>
 
-<!-- 下拉 -->
+<!-- 下拉菜单 -->
 <view class="dd-mask" wx:if="{{showDropdown}}" bindtap="closeDropdown"></view>
 <view class="dropdown" wx:if="{{showDropdown}}">
   <view class="dd-item {{warnDays === item.value ? 'active' : ''}}"
@@ -38,15 +45,6 @@
   </view>
 </view>
 
-<!-- 搜索栏 -->
-<view class="search-bar">
-  <view class="search-wrap">
-    <text class="search-icon">🔎</text>
-    <input class="search-input" placeholder="搜索证照..." value="{{keyword}}" bindinput="onSearchInput" />
-    <text class="search-clear" wx:if="{{keyword}}" bindtap="clearSearch">✕</text>
-  </view>
-</view>
-
 <!-- 筛选条 -->
 <view class="filter-bar" wx:if="{{filterStatus !== 'all'}}" bindtap="clearFilter">
   <text>{{filterText}}</text>
@@ -54,29 +52,36 @@
 </view>
 
 <!-- 列表 -->
-<view class="list">
+<view class="cert-list">
   <view class="cert-card" wx:for="{{certList}}" wx:key="_id"
         bindtap="goDetail" data-id="{{item._id}}">
-    <view class="card-icon" style="background:{{item._color}}12">
+    <view class="cc-icon" style="background:{{item._color}}12">
       <text>{{item.emoji || '📋'}}</text>
     </view>
-    <view class="card-body">
-      <view class="card-row">
-        <text class="card-name">{{item.name}}</text>
-        <view class="card-badge {{item._status.type}}">{{item._status.text}}</view>
+    <view class="cc-body">
+      <view class="cc-top">
+        <text class="cc-name">{{item.name}}</text>
+        <view class="cc-badge {{item._status.type}}">{{item._status.text}}</view>
       </view>
-      <view class="card-date">
-        {{item.isPermanent ? '永久有效' : (item.expireDate || '未设置到期日')}}
+      <!-- 时间线 + 倒计时 -->
+      <view class="cc-timeline" wx:if="{{item.obtainDate || item.expireDate}}">
+        <text wx:if="{{item.obtainDate}}" class="cc-date-label">取证 {{item.obtainDate}}</text>
+        <text wx:if="{{item.obtainDate && (item.expireDate || item.isPermanent)}}" class="cc-arrow">→</text>
+        <text wx:if="{{item.isPermanent}}" class="cc-date-label permanent">永久有效</text>
+        <text wx:elif="{{item.expireDate}}" class="cc-date-label">到期 {{item.expireDate}}</text>
+        <text wx:if="{{item._status.countdown}}" class="cc-countdown {{item._status.type}}">· {{item._status.countdown}}</text>
       </view>
-      <view class="card-ver" wx:if="{{item.currentVersion > 1}}">v{{item.currentVersion}}</view>
+      <view class="cc-date-simple" wx:elif="{{item.expireDate || item.isPermanent}}">
+        <text>{{item.isPermanent ? '永久有效' : '到期 ' + item.expireDate}}</text>
+      </view>
     </view>
-    <view class="card-arrow">›</view>
+    <view class="cc-arrow">›</view>
   </view>
 
-  <view class="empty" wx:if="{{!loading && certList.length === 0}}">
-    <view class="empty-icon">📪</view>
-    <view class="empty-text">暂无证照</view>
-    <view class="empty-hint">点击右下角 + 添加</view>
+  <view class="empty-state" wx:if="{{!loading && certList.length === 0}}">
+    <view class="icon">📪</view>
+    <view class="text">暂无证照</view>
+    <view style="font-size:24rpx;color:#8e8e93;margin-top:8rpx">点击右下角 + 添加</view>
   </view>
 
   <view class="loading" wx:if="{{loading}}">加载中...</view>

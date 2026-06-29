@@ -48,9 +48,10 @@ function getCertStatus(cert, warnDays) {
 
   const threshold = warnDays || 30;
   const days = daysUntilExpire(cert.expireDate);
-  if (days < 0) return { text: '已过期', type: 'expired' };
-  if (days <= threshold) return { text: days + '天后到期', type: 'warn' };
-  return { text: '正常', type: 'normal' };
+  if (days < 0) return { text: '已过期', type: 'expired', countdown: '已过期' + Math.abs(days) + '天' };
+  if (days === 0) return { text: '今天到期', type: 'warn', countdown: '今天到期' };
+  if (days <= threshold) return { text: days + '天后到期', type: 'warn', countdown: '还有' + days + '天' };
+  return { text: '正常', type: 'normal', countdown: '还有' + days + '天' };
 }
 
 /**

@@ -7,178 +7,36 @@
   flex-direction: column;
 }
 
-/* ===== 顶部 ===== */
-.cal-header {
-  background: linear-gradient(135deg, #6366F1 0%, #8B9CF7 100%);
-  padding: 0 32rpx 36rpx;
-}
-
-.status-bar-spacer {
-  width: 100%;
-}
-
-.header-top {
-  display: flex;
-  align-items: center;
-  margin-top: 8rpx;
-}
-
-.header-info {
-  flex: 1;
-  min-width: 0;
-}
-
-/* 头像 */
-.avatar-wrap {
-  width: 64rpx;
-  height: 64rpx;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.avatar-img {
-  width: 64rpx;
-  height: 64rpx;
-  border-radius: 50%;
-  display: block;
-}
-
-.avatar-placeholder {
-  width: 64rpx;
-  height: 64rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30rpx;
-}
-
-.avatar-trigger {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  padding: 0;
-  margin: 0;
-  border: none;
-  min-height: 0;
-}
-
-.avatar-trigger::after {
-  border: none;
-}
-
-.header-title {
-  font-size: 40rpx;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 2rpx;
-}
-
-.header-sub {
-  font-size: 24rpx;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 6rpx;
-}
-
-.header-right {
-  width: 64rpx;
-  height: 64rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24rpx;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-.header-right:active {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* ===== 分类统计条（仿清单页） ===== */
-.cal-stats {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 24rpx;
-  padding: 24rpx 0;
-  margin-top: 28rpx;
-  backdrop-filter: blur(20px);
-}
-
-.cal-stat {
-  flex: 1;
-  text-align: center;
-}
-
-.cal-stat-num {
-  font-size: 52rpx;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.cal-stat-label {
-  font-size: 22rpx;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 8rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6rpx;
-}
-
-.cal-stat-icon {
-  font-size: 24rpx;
-}
-
-.cal-stat:active {
-  opacity: 0.7;
-}
-
-.cal-stat-divider {
-  width: 2rpx;
-  height: 56rpx;
-  background: rgba(255, 255, 255, 0.2);
-}
-
 /* ===== 月份切换工具条 ===== */
 .month-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 16rpx 24rpx 0;
+  margin: 12rpx 20rpx 0;
   background: #fff;
-  border-radius: 24rpx;
-  padding: 12rpx 24rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx;
+  box-shadow: 0 1rpx 8rpx rgba(0,0,0,0.03);
 }
 
 .mt-arrow {
-  width: 64rpx;
-  height: 64rpx;
+  width: 60rpx;
+  height: 60rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 36rpx;
   color: #6366F1;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 50%;
 }
-.mt-arrow:active {
-  background: #EEF0FF;
-}
+
+.mt-arrow:active { background: #EEF0FF; }
 
 .mt-label {
   flex: 1;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 26rpx;
   font-weight: 600;
   color: #1a1a1a;
 }
@@ -186,8 +44,7 @@
 /* ===== 星期头 ===== */
 .weekday-header {
   display: flex;
-  padding: 16rpx 8rpx 8rpx;
-  background: #f5f6fa;
+  padding: 14rpx 8rpx 6rpx;
 }
 
 .wd-item {
@@ -203,7 +60,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 8rpx 40rpx;
+  padding: 0 6rpx 40rpx;
 }
 
 .cal-row {
@@ -217,27 +74,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8rpx 4rpx 6rpx;
-  border-radius: 16rpx;
+  padding: 6rpx 3rpx 4rpx;
+  border-radius: 12rpx;
   position: relative;
   min-width: 0;
   overflow: visible;
-  border: 1rpx solid transparent;
 }
 
 .cal-cell.current {
   background: #fff;
-  box-shadow: 0 1rpx 4rpx rgba(0, 0, 0, 0.03);
-}
-.cal-cell.other {
-  opacity: 0.35;
+  box-shadow: 0 1rpx 3rpx rgba(0,0,0,0.03);
 }
 
-/* 今日高亮 */
+.cal-cell.other { opacity: 0.3; }
+
+/* 今日 */
 .cal-cell.today .cell-num {
-  width: 56rpx;
-  height: 56rpx;
-  line-height: 56rpx;
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
   background: #6366F1;
   color: #fff;
   border-radius: 50%;
@@ -248,35 +103,32 @@
 .cell-top {
   display: flex;
   align-items: center;
-  gap: 6rpx;
-  padding-left: 4rpx;
+  gap: 4rpx;
+  padding-left: 3rpx;
   align-self: flex-start;
 }
 
 .cell-dot {
-  width: 12rpx;
-  height: 12rpx;
+  width: 10rpx;
+  height: 10rpx;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .cell-num {
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-weight: 600;
   color: #1a1a1a;
   line-height: 1.2;
 }
 
-.cell-num.holiday {
-  color: #EF4444;
-}
+.cell-num.holiday { color: #EF4444; }
 
 .cell-lunar {
   font-size: 18rpx;
   color: #b0b0b0;
-  margin-top: 2rpx;
+  margin-top: 1rpx;
   line-height: 1.2;
-  text-align: center;
 }
 
 .cell-lunar.holiday-text {
@@ -288,17 +140,17 @@
 .cell-events {
   width: calc(100% + 8rpx);
   margin-left: -4rpx;
-  margin-top: 4rpx;
+  margin-top: 3rpx;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3rpx;
+  gap: 2rpx;
   overflow: visible;
 }
 
 .event-bar {
   width: 100%;
-  min-height: 32rpx;
+  min-height: 36rpx;
   display: flex;
   align-items: center;
   padding: 0 6rpx;
@@ -307,18 +159,13 @@
   opacity: 0.92;
 }
 
-/* 单日事件 */
-.event-bar.evt-single {
-  border-radius: 6rpx;
-}
+.event-bar.evt-single { border-radius: 6rpx; }
 
-/* 跨天开始日 */
 .event-bar.evt-start {
   border-radius: 6rpx 0 0 6rpx;
   width: calc(100% + 4rpx);
 }
 
-/* 跨天中间日 */
 .event-bar.evt-middle {
   border-radius: 0;
   width: calc(100% + 8rpx);
@@ -326,7 +173,6 @@
   padding: 0 0;
 }
 
-/* 跨天结束日 */
 .event-bar.evt-end {
   border-radius: 0 6rpx 6rpx 0;
   width: calc(100% + 4rpx);
@@ -334,7 +180,7 @@
 }
 
 .bar-text {
-  font-size: 18rpx;
+  font-size: 22rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -348,23 +194,22 @@
   position: fixed;
   right: 40rpx;
   bottom: 160rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 96rpx;
+  height: 96rpx;
   background: linear-gradient(135deg, #6366F1, #8B9CF7);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 50rpx;
+  font-size: 48rpx;
   font-weight: 300;
-  box-shadow: 0 8rpx 32rpx rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8rpx 28rpx rgba(99,102,241,0.35);
   z-index: 50;
   transition: transform 0.2s;
 }
-.fab:active {
-  transform: scale(0.9);
-}
+
+.fab:active { transform: scale(0.9); }
 
 /* ===== 日期事件弹窗 ===== */
 .day-events-mask {
@@ -376,10 +221,9 @@
 
 .day-events-sheet {
   position: fixed;
-  left: 0; right: 0;
-  bottom: 0;
+  left: 0; right: 0; bottom: 0;
   background: #fff;
-  border-radius: 32rpx 32rpx 0 0;
+  border-radius: 28rpx 28rpx 0 0;
   z-index: 101;
   max-height: 60vh;
   display: flex;
@@ -396,7 +240,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32rpx 32rpx 16rpx;
+  padding: 28rpx 28rpx 14rpx;
   border-bottom: 1rpx solid #f0f0f0;
 }
 
@@ -414,21 +258,21 @@
 
 .sheet-list {
   flex: 1;
-  padding: 8rpx 32rpx;
+  padding: 8rpx 28rpx;
   max-height: 40vh;
 }
 
 .sheet-item {
   display: flex;
   align-items: center;
-  padding: 24rpx 0;
+  padding: 22rpx 0;
   border-bottom: 1rpx solid #f7f7f7;
-  gap: 20rpx;
+  gap: 18rpx;
 }
 
 .sheet-dot {
-  width: 20rpx;
-  height: 20rpx;
+  width: 16rpx;
+  height: 16rpx;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -464,13 +308,12 @@
 }
 
 .sheet-add {
-  padding: 28rpx;
+  padding: 26rpx;
   text-align: center;
   font-size: 30rpx;
   font-weight: 600;
   color: #6366F1;
   border-top: 1rpx solid #f0f0f0;
 }
-.sheet-add:active {
-  background: #f7f8fa;
-}
+
+.sheet-add:active { background: #f7f8fa; }

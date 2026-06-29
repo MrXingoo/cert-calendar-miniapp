@@ -1,38 +1,32 @@
 <!-- pages/calendar/calendar.wxml -->
 <view class="cal-page">
 
-  <!-- 顶部：统一风格 -->
-  <view class="cal-header">
+  <!-- 顶部 -->
+  <view class="gradient-header">
     <view class="status-bar-spacer" style="height:{{statusBarHeight}}px"></view>
-    <view class="header-top">
-      <view class="avatar-wrap" style="margin-right:20rpx">
-        <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" class="avatar-img" mode="aspectFill" />
-        <text wx:else class="avatar-placeholder">🧑</text>
-        <button class="avatar-trigger" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
+    <view class="header-row">
+      <view class="header-avatar">
+        <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" mode="aspectFill" />
+        <text wx:else class="ph">🧑</text>
+        <button class="header-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
       </view>
       <view class="header-info">
         <view class="header-title">月历</view>
-        <view class="header-sub">{{currentYear}}年{{currentMonth}}月 · {{ganZhiYear}}年（{{animal}}年）</view>
+        <view class="header-sub">{{currentYear}}年{{currentMonth}}月</view>
       </view>
-      <view class="header-right" bindtap="goToday">今</view>
+      <view class="header-action" bindtap="goToday">今</view>
     </view>
 
-    <!-- 分类统计（仿清单页 stats） -->
-    <view class="cal-stats">
-      <view class="cal-stat" bindtap="onStatCatTap" data-slot="1">
-        <view class="cal-stat-num" style="color:{{statCat1Info.color}}">{{statDays1}}</view>
-        <view class="cal-stat-label">
-          <text class="cal-stat-icon">{{statCat1Info.icon}}</text>
-          <text>{{statCat1Info.name}}</text>
-        </view>
+    <!-- 分类统计 -->
+    <view class="stats-bar">
+      <view class="stats-item" bindtap="onStatCatTap" data-slot="1">
+        <view class="stats-num" style="color:{{statCat1Info.color}}">{{statDays1}}</view>
+        <view class="stats-label">{{statCat1Info.icon}} {{statCat1Info.name}}</view>
       </view>
-      <view class="cal-stat-divider"></view>
-      <view class="cal-stat" bindtap="onStatCatTap" data-slot="2">
-        <view class="cal-stat-num" style="color:{{statCat2Info.color}}">{{statDays2}}</view>
-        <view class="cal-stat-label">
-          <text class="cal-stat-icon">{{statCat2Info.icon}}</text>
-          <text>{{statCat2Info.name}}</text>
-        </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item" bindtap="onStatCatTap" data-slot="2">
+        <view class="stats-num" style="color:{{statCat2Info.color}}">{{statDays2}}</view>
+        <view class="stats-label">{{statCat2Info.icon}} {{statCat2Info.name}}</view>
       </view>
     </view>
   </view>
@@ -40,14 +34,14 @@
   <!-- 月份切换工具条 -->
   <view class="month-toolbar">
     <view class="mt-arrow" bindtap="prevMonth">‹</view>
-    <view class="mt-label">{{currentYear}}年{{currentMonth}}月 · {{lunarMonthText}}</view>
+    <view class="mt-label">{{lunarMonthText}} · {{ganZhiYear}}年（{{animal}}年）</view>
     <view class="mt-arrow" bindtap="nextMonth">›</view>
   </view>
 
   <!-- 星期头 -->
   <view class="weekday-header">
     <text class="wd-item" wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="*this"
-          style="{{index===5||index===6?'color:#F25C5C':''}}">{{item}}</text>
+          style="{{index===5||index===6?'color:#EF4444':''}}">{{item}}</text>
   </view>
 
   <!-- 日历网格 -->
@@ -57,17 +51,14 @@
             wx:for="{{week}}" wx:key="fullDate" wx:for-item="item"
             bindtap="onDayTap" data-date="{{item.fullDate}}">
 
-        <!-- 日期数字 -->
         <view class="cell-top">
           <view class="cell-dot" wx:if="{{item.events.length > 0}}"
                 style="background:{{item.events[0].color}}"></view>
           <text class="cell-num {{item.holiday?'holiday':''}}">{{item.day}}</text>
         </view>
 
-        <!-- 农历/节假日 -->
         <text class="cell-lunar {{item.holiday?'holiday-text':''}}">{{item.holiday || item.lunarText}}</text>
 
-        <!-- 事件色条 -->
         <view class="cell-events">
           <view class="event-bar evt-{{evt.position}}"
                 wx:for="{{item.events}}" wx:for-item="evt" wx:key="_id"
@@ -81,12 +72,12 @@
     </view>
   </view>
 
-  <!-- 悬浮添加按钮 -->
+  <!-- 悬浮按钮 -->
   <view class="fab" bindtap="onFabTap">
     <text>+</text>
   </view>
 
-  <!-- 点击日期弹窗：当日事件列表 -->
+  <!-- 日期事件弹窗 -->
   <view class="day-events-mask" wx:if="{{showDayEvents}}" bindtap="closeDayEvents"></view>
   <view class="day-events-sheet" wx:if="{{showDayEvents}}">
     <view class="sheet-header">
@@ -96,7 +87,7 @@
     <scroll-view scroll-y class="sheet-list">
       <view class="sheet-item" wx:for="{{dayEvents}}" wx:key="_id"
             bindtap="onEventTap" data-id="{{item._id}}">
-        <view class="sheet-dot" style="background:{{item.color || '#5B6EF5'}}"></view>
+        <view class="sheet-dot" style="background:{{item.color || '#6366F1'}}"></view>
         <view class="sheet-info">
           <text class="sheet-title">{{item.title}}</text>
           <text class="sheet-range">{{item.startDate}} ~ {{item.endDate}}</text>

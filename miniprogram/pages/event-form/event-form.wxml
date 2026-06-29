@@ -1,0 +1,92 @@
+<!-- pages/event-form/event-form.wxml -->
+<view class="form-page">
+
+  <!-- 标题 -->
+  <view class="form-section">
+    <view class="form-group">
+      <view class="label">事件标题 <text class="req">*</text></view>
+      <input class="form-input" placeholder="输入事件标题"
+             value="{{formData.title}}" bindinput="onTitleInput" />
+    </view>
+  </view>
+
+  <!-- 分类（颜色自动跟随分类） -->
+  <view class="form-section">
+    <view class="section-title-row">
+      <text class="section-title">分类</text>
+      <view class="section-actions">
+        <text class="link-btn" bindtap="quickAddCategory">+ 新建</text>
+        <text class="link-btn" bindtap="goManageCategories">管理</text>
+      </view>
+    </view>
+    <view class="cat-grid">
+      <view class="cat-item {{formData.categoryId===item.id?'active':''}}"
+            wx:for="{{categories}}" wx:key="id"
+            bindtap="selectCategory" data-id="{{item.id}}"
+            style="{{formData.categoryId===item.id?'border-color:'+item.color+';background:'+item.color+'12':''}}">
+        <view class="cat-icon" wx:if="{{item.icon}}" style="font-size:32rpx;">{{item.icon}}</view>
+        <view class="cat-dot" style="background:{{item.color}}"></view>
+        <text class="cat-name">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="cat-hint">事件颜色会跟随所选分类自动变化</view>
+  </view>
+
+  <!-- 日期 -->
+  <view class="form-section">
+    <view class="section-title">日期</view>
+    <view class="form-group">
+      <view class="label">开始日期 <text class="req">*</text></view>
+      <picker mode="date" value="{{formData.startDate}}" bindchange="onStartDateChange">
+        <view class="form-input picker {{formData.startDate?'':'ph'}}">
+          {{formData.startDate ? formData.startDate + ' ' + formData.startWeekday : '点击选择开始日期'}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-group">
+      <view class="label">结束日期 <text class="opt">（不填则单日）</text></view>
+      <picker mode="date" value="{{formData.endDate}}" bindchange="onEndDateChange">
+        <view class="form-input picker {{formData.endDate?'':'ph'}}">
+          {{formData.endDate ? formData.endDate + ' ' + formData.endWeekday : '点击选择结束日期（可选）'}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-group row">
+      <view class="label">全天事件</view>
+      <switch checked="{{formData.isAllDay}}" bindchange="toggleAllDay" color="#5B6EF5" />
+    </view>
+  </view>
+
+  <!-- 关联证照 -->
+  <view class="form-section">
+    <view class="section-title-row">
+      <text class="section-title">关联证照（可选）</text>
+      <text class="link-btn" wx:if="{{formData.relatedCertId}}" bindtap="onClearCert">取消关联</text>
+    </view>
+    <picker range="{{certList}}" range-key="name" value="{{certIndex>=0?certIndex:0}}" bindchange="onCertChange">
+      <view class="form-input picker">
+        {{formData.relatedCertId && certIndex>=0 ? certList[certIndex].name : '选择关联证照（可选）'}}
+      </view>
+    </picker>
+  </view>
+
+  <!-- 备注 -->
+  <view class="form-section">
+    <view class="form-group">
+      <view class="label">备注 <text class="opt">可选</text></view>
+      <textarea class="form-textarea" placeholder="添加备注..."
+                value="{{formData.remark}}" bindinput="onRemarkInput" />
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="btn-row">
+    <button class="btn-primary" bindtap="onSave" disabled="{{saving}}">
+      {{saving ? '保存中...' : (mode==='edit' ? '保存修改' : '添加事件')}}
+    </button>
+    <button class="btn-del" wx:if="{{mode==='edit'}}" bindtap="onDelete" disabled="{{deleting}}">
+      {{deleting ? '删除中...' : '删除事件'}}
+    </button>
+  </view>
+
+</view>

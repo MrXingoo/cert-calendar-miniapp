@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/calendar/calendar",
+    "pages/index/index",
+    "pages/cert-form/cert-form",
+    "pages/detail/detail",
+    "pages/history/history",
+    "pages/event-form/event-form",
+    "pages/category-manage/category-manage"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#5B6EF5",
+    "navigationBarTitleText": "证照清单",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f7f8fa",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#8e8e93",
+    "selectedColor": "#5B6EF5",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "日历",
+        "pagePath": "pages/calendar/calendar",
+        "iconPath": "assets/tab-calendar.png",
+        "selectedIconPath": "assets/tab-calendar-active.png"
+      },
+      {
+        "text": "清单",
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/tab-list.png",
+        "selectedIconPath": "assets/tab-list-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

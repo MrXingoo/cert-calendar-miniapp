@@ -1,0 +1,70 @@
+<!-- pages/detail/detail.wxml -->
+<scroll-view scroll-y class="page-scroll">
+  <!-- 顶部：图片区域 -->
+  <view class="img-section">
+    <!-- 状态栏占位 -->
+    <view class="status-bar"></view>
+    <swiper wx:if="{{cert.images && cert.images.length > 0}}" class="img-swiper" indicator-dots autoplay circular>
+      <swiper-item wx:for="{{cert.images}}" wx:key="index" bindtap="previewImage" data-index="{{index}}">
+        <image src="{{item}}" mode="aspectFill" class="swiper-img" />
+      </swiper-item>
+    </swiper>
+    <view class="img-empty" wx:else>
+      <text class="img-empty-icon">{{cert.emoji || '📋'}}</text>
+    </view>
+    <view class="back-btn" style="top:{{statusBarHeight + 8}}px" bindtap="goBack">←</view>
+  </view>
+
+  <!-- 信息区域 -->
+  <view class="info-section">
+    <view class="name-row">
+      <text class="cert-name">{{cert.name}}</text>
+      <view class="badge {{countdownType}}">{{countdownText}}</view>
+    </view>
+
+    <view class="countdown" wx:if="{{cert.expireDate || cert.isPermanent}}">
+      <view class="cd-label">{{countdownLabel}}</view>
+    </view>
+
+    <view class="info-card">
+      <view class="info-row" wx:if="{{cert.obtainDate}}">
+        <text class="info-key">取证日期</text>
+        <text class="info-val">{{cert.obtainDate}}</text>
+      </view>
+      <view class="info-row" wx:if="{{cert.expireDate || cert.isPermanent}}">
+        <text class="info-key">到期日期</text>
+        <text class="info-val">{{cert.isPermanent ? '永久有效' : cert.expireDate}}</text>
+      </view>
+      <view class="info-row" wx:if="{{cert.remark}}">
+        <text class="info-key">备注</text>
+        <text class="info-val remark">{{cert.remark}}</text>
+      </view>
+    </view>
+
+    <view class="sec-header">
+      <text class="sec-title">变更记录</text>
+      <text class="sec-link" wx:if="{{historyList.length > 0}}" bindtap="goHistory">全部 {{historyList.length}} 条 →</text>
+    </view>
+
+    <view class="hist-card" wx:for="{{historyPreview}}" wx:key="version" bindtap="goHistory">
+      <view class="hist-top">
+        <text class="hist-time">{{item._time}}</text>
+        <text class="hist-ver">v{{item.version}}</text>
+      </view>
+      <view class="hist-changes">
+        <text class="hist-tag" wx:for="{{item.changes}}" wx:for-item="ch" wx:key="field">{{ch.field}}</text>
+      </view>
+    </view>
+
+    <view class="no-hist" wx:if="{{historyList.length === 0}}">暂无变更记录</view>
+
+    <!-- 底部占位，防止被操作栏遮挡 -->
+    <view class="bottom-space"></view>
+  </view>
+</scroll-view>
+
+<!-- 操作栏：固定在底部 -->
+<view class="actions">
+  <button class="btn-edit" bindtap="onEdit">更新</button>
+  <button class="btn-del" bindtap="onDelete">删除</button>
+</view>

@@ -1,0 +1,105 @@
+<!-- pages/category-manage/category-manage.wxml -->
+<view class="cm-page">
+  <!-- 顶部 -->
+  <view class="cm-header">
+    <view class="cm-back" bindtap="onBack">←</view>
+    <view class="cm-title">分类管理</view>
+    <view class="cm-add" bindtap="onAdd">+ 新建</view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="cm-list">
+    <view class="cm-card" wx:for="{{categories}}" wx:key="id">
+      <view class="cm-icon" style="background:{{item.color}}">
+        <text>{{item.icon}}</text>
+      </view>
+      <view class="cm-info">
+        <view class="cm-name">{{item.name}}</view>
+        <view class="cm-color-row">
+          <view class="cm-color-dot" style="background:{{item.color}}"></view>
+          <text class="cm-color-text">{{item.color}}</text>
+        </view>
+      </view>
+      <view class="cm-actions">
+        <view class="cm-btn edit" bindtap="onEdit" data-id="{{item.id}}">编辑</view>
+        <view class="cm-btn del" bindtap="onDelete" data-id="{{item.id}}" data-name="{{item.name}}">删除</view>
+      </view>
+    </view>
+
+    <view class="cm-empty" wx:if="{{categories.length===0}}">
+      <text>暂无分类，点击右上角 + 新建</text>
+    </view>
+  </view>
+
+  <!-- 重置按钮 -->
+  <view class="cm-footer">
+    <view class="cm-reset" bindtap="onReset">恢复默认分类</view>
+  </view>
+
+  <!-- 编辑弹层 -->
+  <view class="cm-mask" wx:if="{{editing}}" bindtap="onCancelEdit"></view>
+  <view class="cm-sheet" wx:if="{{editing}}">
+    <view class="cm-sheet-header">
+      <text class="cm-sheet-title">{{isNew ? '新建分类' : '编辑分类'}}</text>
+      <text class="cm-sheet-close" bindtap="onCancelEdit">✕</text>
+    </view>
+
+    <view class="cm-sheet-body">
+      <!-- 名称 -->
+      <view class="form-group">
+        <view class="form-label">分类名称</view>
+        <input class="form-input" placeholder="输入分类名称" value="{{editing.name}}"
+               bindinput="onNameInput" maxlength="10" />
+      </view>
+
+      <!-- 图标 -->
+      <view class="form-group">
+        <view class="form-label">分类图标</view>
+        <view class="emoji-preview" bindtap="toggleEmojiPicker"
+              style="background:{{editing.color}}15; border-color:{{editing.color}};">
+          <text class="emoji-text">{{editing.icon}}</text>
+          <text class="emoji-hint">点击更换</text>
+        </view>
+      </view>
+
+      <!-- 颜色 -->
+      <view class="form-group">
+        <view class="form-label">分类颜色</view>
+        <view class="color-preview" bindtap="toggleColorPicker"
+              style="background:{{editing.color}};">
+          <text class="color-hex">{{editing.color}}</text>
+        </view>
+      </view>
+
+      <!-- emoji 选择器 -->
+      <view class="picker-panel" wx:if="{{showEmoji}}">
+        <view class="picker-title">选择图标</view>
+        <view class="picker-grid">
+          <view class="picker-item" wx:for="{{emojiOptions}}" wx:key="*this"
+                bindtap="onEmojiSelect" data-icon="{{item}}">{{item}}</view>
+        </view>
+      </view>
+
+      <!-- 颜色选择器 -->
+      <view class="picker-panel" wx:if="{{showColor}}">
+        <view class="picker-title">选择颜色</view>
+        <view class="picker-grid color-grid">
+          <view class="picker-color" wx:for="{{colorPalette}}" wx:key="*this"
+                style="background:{{item}}"
+                bindtap="onColorSelect" data-color="{{item}}">
+          </view>
+        </view>
+        <view class="color-input-row">
+          <text class="color-input-label">自定义HEX：</text>
+          <input class="color-input" value="{{editing.color}}" bindinput="onColorHexInput"
+                 placeholder="#5B6EF5" maxlength="7" />
+        </view>
+      </view>
+    </view>
+
+    <view class="cm-sheet-footer">
+      <view class="sheet-btn cancel" bindtap="onCancelEdit">取消</view>
+      <view class="sheet-btn confirm" bindtap="onSaveEdit">保存</view>
+    </view>
+  </view>
+</view>

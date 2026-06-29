@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+miniprogram_npm/
+package-lock.json
+*.zip
+server.py
+server.log
+ui-preview.html
+index.html
+我的证照和月历/

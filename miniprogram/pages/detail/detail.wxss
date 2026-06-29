@@ -1,0 +1,261 @@
+/* pages/detail/detail.wxss */
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-scroll {
+  height: 100%;
+}
+
+/* 图片区域 */
+.img-section {
+  width: 100%;
+  height: 560rpx;
+  position: relative;
+  background: #1a1a1a;
+}
+
+.status-bar {
+  height: env(safe-area-inset-top);
+  width: 100%;
+}
+
+.img-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 100%;
+}
+
+.img-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #5B6EF5, #8B9CF7);
+}
+
+.img-empty-icon {
+  font-size: 120rpx;
+  opacity: 0.6;
+}
+
+.back-btn {
+  position: absolute;
+  left: 32rpx;
+  width: 68rpx;
+  height: 68rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 36rpx;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* 信息区域 */
+.info-section {
+  padding: 32rpx;
+  background: #f7f8fa;
+  border-radius: 40rpx 40rpx 0 0;
+  margin-top: -40rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.cert-name {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.badge {
+  font-size: 32rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 20rpx;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.badge.safe { background: #E8F8ED; color: #34C759; }
+.badge.warn { background: #FFF3E0; color: #F5A623; }
+.badge.danger { background: #FFECEF; color: #F25C5C; }
+
+.countdown {
+  margin-bottom: 24rpx;
+}
+
+.cd-label {
+  font-size: 26rpx;
+  color: #8e8e93;
+}
+
+/* 信息卡片 */
+.info-card {
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  margin-bottom: 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-key {
+  font-size: 26rpx;
+  color: #8e8e93;
+}
+
+.info-val {
+  font-size: 28rpx;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.info-val.remark {
+  font-weight: 400;
+  color: #666;
+  max-width: 380rpx;
+  text-align: right;
+}
+
+/* 变更记录 */
+.sec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.sec-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.sec-link {
+  font-size: 24rpx;
+  color: #5B6EF5;
+}
+
+.hist-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 12rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.hist-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.hist-time {
+  font-size: 24rpx;
+  color: #8e8e93;
+}
+
+.hist-ver {
+  font-size: 22rpx;
+  color: #5B6EF5;
+  background: #E8EAFF;
+  padding: 4rpx 14rpx;
+  border-radius: 10rpx;
+  font-weight: 600;
+}
+
+.hist-changes {
+  display: flex;
+  gap: 8rpx;
+  flex-wrap: wrap;
+}
+
+.hist-tag {
+  font-size: 22rpx;
+  color: #666;
+  background: #f7f8fa;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+.no-hist {
+  text-align: center;
+  padding: 32rpx;
+  color: #c7c7cc;
+  font-size: 26rpx;
+}
+
+.bottom-space {
+  height: 160rpx;
+}
+
+/* 操作栏 */
+.actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 20rpx;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 2rpx solid #f0f0f0;
+  z-index: 100;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+
+.btn-edit {
+  flex: 1;
+  height: 88rpx;
+  background: #5B6EF5;
+  color: #fff;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-del {
+  width: 88rpx;
+  height: 88rpx;
+  background: #FFECEF;
+  color: #F25C5C;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

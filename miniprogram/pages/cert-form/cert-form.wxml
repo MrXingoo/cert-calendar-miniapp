@@ -1,0 +1,75 @@
+<!-- pages/cert-form/cert-form.wxml -->
+<view class="form-section">
+  <!-- 证照名称 + 下拉选择 -->
+  <view class="form-group">
+    <view class="label">证照名称 <text class="req">*</text></view>
+    <view class="name-wrap">
+      <input class="form-input" placeholder="输入名称或从已有证照中选择"
+             value="{{formData.name}}" bindinput="onNameInput" bindfocus="onNameFocus" bindblur="onNameBlur" data-field="name" />
+      <!-- 已有证照下拉 -->
+      <view class="name-dropdown" wx:if="{{showNameDropdown && filteredCerts.length > 0}}">
+        <view class="dd-hint">已有证照，点击更新</view>
+        <view class="dd-cert" wx:for="{{filteredCerts}}" wx:key="_id"
+              bindtap="selectCert" data-id="{{item._id}}">
+          <text class="dd-emoji">{{item.emoji || '📋'}}</text>
+          <text class="dd-name">{{item.name}}</text>
+          <text class="dd-arrow">›</text>
+        </view>
+      </view>
+    </view>
+    <!-- 重名提示 -->
+    <view class="dup-hint" wx:if="{{dupCert}}">
+      该证照已存在，将更新已有记录
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="label">取证日期 <text class="opt">可选</text></view>
+    <picker mode="date" value="{{formData.obtainDate}}" bindchange="onDateChange" data-field="obtainDate">
+      <view class="form-input picker {{formData.obtainDate ? '' : 'ph'}}">
+        {{formData.obtainDate || '点击选择日期'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-group">
+    <view class="label">到期日期 <text class="opt">可选</text></view>
+    <view class="date-row">
+      <picker mode="date" value="{{formData.expireDate}}" bindchange="onDateChange" data-field="expireDate"
+              disabled="{{formData.isPermanent}}">
+        <view class="form-input picker {{formData.expireDate ? '' : 'ph'}}"
+              style="{{formData.isPermanent ? 'opacity:.4' : ''}}">
+          {{formData.isPermanent ? '永久有效' : (formData.expireDate || '点击选择日期')}}
+        </view>
+      </picker>
+      <view class="perm-btn {{formData.isPermanent ? 'on' : ''}}" bindtap="togglePermanent">永久有效</view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="label">证照图片 <text class="opt">可选 · 最多3张</text></view>
+    <view class="upload-bar" wx:if="{{uploading}}">
+      <view class="bar-track"><view class="bar-fill" style="width:{{uploadProgress}}%"></view></view>
+      <text class="bar-text">上传中 {{uploadProgress}}%</text>
+    </view>
+    <view class="img-area">
+      <view class="img-item" wx:for="{{formData.images}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFill" />
+        <view class="img-del" catchtap="removeImage" data-index="{{index}}">×</view>
+      </view>
+      <view class="img-add" bindtap="chooseImage" wx:if="{{formData.images.length < 3 && !uploading}}">
+        <text class="plus">+</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="label">备注 <text class="opt">可选</text></view>
+    <textarea class="form-textarea" placeholder="添加备注信息..."
+              value="{{formData.remark}}" bindinput="onInput" data-field="remark" />
+  </view>
+
+  <button class="submit-btn" bindtap="onSave" disabled="{{saving || uploading}}">
+    {{saving ? '保存中...' : (mode === 'edit' ? '保存更新' : '添加证照')}}
+  </button>
+</view>

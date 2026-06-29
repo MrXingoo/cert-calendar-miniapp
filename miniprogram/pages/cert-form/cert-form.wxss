@@ -1,0 +1,256 @@
+/* pages/cert-form/cert-form.wxss */
+.form-section {
+  padding: 32rpx;
+}
+
+.form-group {
+  margin-bottom: 36rpx;
+}
+
+.form-group .label {
+  font-size: 26rpx;
+  color: #8e8e93;
+  margin-bottom: 14rpx;
+  font-weight: 500;
+}
+
+.form-group .req { color: #F25C5C; }
+.form-group .opt { color: #c7c7cc; font-size: 22rpx; margin-left: 8rpx; font-weight: 400; }
+
+.form-input {
+  width: 100%;
+  height: 92rpx;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 20rpx;
+  padding: 0 28rpx;
+  font-size: 28rpx;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus { border-color: #5B6EF5; }
+.form-input.ph { color: #c7c7cc; }
+
+.picker {
+  display: flex;
+  align-items: center;
+  line-height: 92rpx;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 160rpx;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  font-size: 28rpx;
+  background: #fff;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-textarea:focus { border-color: #5B6EF5; }
+
+.date-row {
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+}
+
+.date-row picker { flex: 1; }
+
+.perm-btn {
+  height: 92rpx;
+  padding: 0 28rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #f0f0f0;
+  background: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  color: #8e8e93;
+  transition: all 0.2s;
+}
+
+.perm-btn.on {
+  background: #5B6EF5;
+  color: #fff;
+  border-color: #5B6EF5;
+}
+
+/* 图片 */
+.img-area {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+
+.img-add {
+  width: 200rpx;
+  height: 200rpx;
+  border: 3rpx dashed #ddd;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  transition: all 0.2s;
+}
+
+.img-add:active {
+  border-color: #5B6EF5;
+  background: #E8EAFF;
+}
+
+.img-add .plus {
+  font-size: 48rpx;
+  color: #c7c7cc;
+  font-weight: 300;
+}
+
+.img-item {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 24rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-item image { width: 100%; height: 100%; }
+
+.img-del {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  backdrop-filter: blur(4px);
+}
+
+/* 上传进度 */
+.upload-bar { margin-bottom: 16rpx; }
+
+.bar-track {
+  width: 100%;
+  height: 6rpx;
+  background: #f0f0f0;
+  border-radius: 3rpx;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #5B6EF5;
+  border-radius: 3rpx;
+  transition: width 0.3s;
+}
+
+.bar-text {
+  font-size: 22rpx;
+  color: #5B6EF5;
+  margin-top: 8rpx;
+  display: block;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  width: 100%;
+  height: 100rpx;
+  background: #5B6EF5;
+  color: #fff;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  margin-top: 16rpx;
+  transition: all 0.15s;
+}
+
+.submit-btn:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.submit-btn[disabled] {
+  background: #c7c7cc;
+}
+
+/* 名称下拉选择 */
+.name-wrap {
+  position: relative;
+}
+
+.name-dropdown {
+  position: absolute;
+  top: 96rpx;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  max-height: 480rpx;
+  overflow-y: auto;
+  animation: ddIn 0.15s ease;
+}
+
+@keyframes ddIn {
+  from { opacity: 0; transform: translateY(-8rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dd-hint {
+  font-size: 22rpx;
+  color: #8e8e93;
+  padding: 16rpx 24rpx 8rpx;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.dd-cert {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 24rpx;
+  transition: background 0.15s;
+}
+
+.dd-cert:active {
+  background: #f7f8fa;
+}
+
+.dd-emoji {
+  font-size: 36rpx;
+  flex-shrink: 0;
+}
+
+.dd-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+
+.dd-arrow {
+  font-size: 32rpx;
+  color: #c7c7cc;
+  flex-shrink: 0;
+}
+
+/* 重名提示 */
+.dup-hint {
+  font-size: 24rpx;
+  color: #F5A623;
+  margin-top: 10rpx;
+  padding: 8rpx 0;
+}

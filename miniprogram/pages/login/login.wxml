@@ -1,0 +1,49 @@
+<!-- pages/login/login.wxml -->
+<view class="login-page">
+  <view class="login-bg"></view>
+  <view class="login-content">
+    <view class="login-logo">🗂️</view>
+    <view class="login-title">证照清单</view>
+    <view class="login-desc">安全管理您的个人证照</view>
+
+    <view class="features">
+      <view class="feat">
+        <view class="feat-circle" style="background:#ECFDF5">
+          <text>🔒</text>
+        </view>
+        <text>隐私安全</text>
+      </view>
+      <view class="feat">
+        <view class="feat-circle" style="background:#EEF0FF">
+          <text>🗂️</text>
+        </view>
+        <text>分类管理</text>
+      </view>
+      <view class="feat">
+        <view class="feat-circle" style="background:#FFFBEB">
+          <text>🔔</text>
+        </view>
+        <text>到期提醒</text>
+      </view>
+    </view>
+
+    <button class="login-btn" bindtap="onLogin" loading="{{loading}}">
+      微信一键登录
+    </button>
+
+    <button class="avatar-pick-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <text wx:if="{{avatarUrl}}">已选择头像</text>
+      <text wx:else>选择微信头像（可选）</text>
+    </button>
+
+    <view class="agree">
+      <view class="check {{agreed ? 'checked' : ''}}" bindtap="toggleAgree">
+        <text wx:if="{{agreed}}">✓</text>
+      </view>
+      <text>已阅读并同意</text>
+      <text class="link" bindtap="showAgreement" data-type="user">《用户协议》</text>
+      <text>和</text>
+      <text class="link" bindtap="showAgreement" data-type="privacy">《隐私政策》</text>
+    </view>
+  </view>
+</view>

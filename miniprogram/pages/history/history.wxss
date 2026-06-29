@@ -1,0 +1,140 @@
+/* pages/history/history.wxss */
+.history-header {
+  background: linear-gradient(135deg, #5B6EF5, #8B9CF7);
+  padding: 48rpx 32rpx 40rpx;
+  color: #fff;
+  border-radius: 0 0 48rpx 48rpx;
+}
+
+.back {
+  font-size: 36rpx;
+  margin-bottom: 16rpx;
+  display: inline-block;
+  opacity: 0.8;
+}
+
+.h-title {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.sub {
+  font-size: 24rpx;
+  opacity: 0.7;
+  margin-top: 8rpx;
+}
+
+.timeline {
+  padding: 40rpx 32rpx;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 68rpx;
+  top: 40rpx;
+  bottom: 0;
+  width: 3rpx;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 108rpx;
+  margin-bottom: 40rpx;
+}
+
+.dot {
+  position: absolute;
+  left: 54rpx;
+  top: 8rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #fff;
+  border: 5rpx solid var(--primary);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.dot.current {
+  background: var(--primary);
+  box-shadow: 0 0 0 8rpx var(--primary-light);
+}
+
+.dot.current::after {
+  content: '';
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  background: #fff;
+  border-radius: 50%;
+  margin: 5rpx auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.card-time {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.card-ver {
+  font-size: 22rpx;
+  color: var(--primary);
+  font-weight: 600;
+  background: var(--primary-light);
+  padding: 4rpx 14rpx;
+  border-radius: 12rpx;
+}
+
+.card-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12rpx;
+}
+
+.card-snapshot {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+}
+
+.card-snapshot .label {
+  color: var(--text-secondary);
+}
+
+.card-snapshot .old-val {
+  color: var(--danger);
+  text-decoration: line-through;
+}
+
+.card-snapshot .new-val {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.card-snapshot .arrow {
+  color: #ccc;
+  margin: 0 4rpx;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 60rpx 40rpx;
+  color: #8e8e93;
+  font-size: 26rpx;
+}

@@ -25,11 +25,18 @@ Page({
     ],
     keyword: '',
     statusBarHeight: 44,
+    headerRightPad: 0,
   },
 
   onLoad() {
     const sys = wx.getWindowInfo();
-    this.setData({ statusBarHeight: sys.statusBarHeight || 44 });
+    // 胶囊按钮右边缘距屏幕右边缘的距离 = 屏幕宽 - 胶囊右边
+    const menuRect = wx.getMenuButtonBoundingClientRect();
+    const rightPad = sys.screenWidth - menuRect.right + 20; // 20rpx 额外间距
+    this.setData({
+      statusBarHeight: sys.statusBarHeight || 44,
+      headerRightPad: Math.max(rightPad, 16),
+    });
   },
 
   onShow() {

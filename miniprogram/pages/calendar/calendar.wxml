@@ -4,7 +4,7 @@
   <!-- 顶部 -->
   <view class="gradient-header">
     <view class="status-bar-spacer" style="height:{{statusBarHeight}}px"></view>
-    <view class="header-row">
+    <view class="header-row" style="padding-right:{{headerRightPad}}rpx">
       <view class="header-avatar">
         <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" mode="aspectFill" />
         <text wx:else class="ph">🧑</text>

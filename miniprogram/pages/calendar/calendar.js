@@ -37,6 +37,9 @@ Page({
     const sys = wx.getWindowInfo();
     const now = new Date();
     const cats = getCategories();
+    // 胶囊按钮右边缘距屏幕右边缘的距离
+    const menuRect = wx.getMenuButtonBoundingClientRect();
+    const rightPad = sys.screenWidth - menuRect.right + 20;
     // 读取自选分类，默认取前两个
     let saved = [];
     try { saved = wx.getStorageSync(STAT_CAT_KEY) || []; } catch (e) {}
@@ -47,6 +50,7 @@ Page({
       currentMonth: now.getMonth() + 1,
       todayStr: this.formatDateStr(now),
       statusBarHeight: sys.statusBarHeight || 44,
+      headerRightPad: Math.max(rightPad, 16),
       categories: cats,
       statCat1,
       statCat2,

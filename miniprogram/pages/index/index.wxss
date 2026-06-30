@@ -66,7 +66,7 @@
   align-items: center;
   padding: 28rpx 32rpx;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .dd-item:active { background: #f7f8fa; }
@@ -115,12 +115,14 @@
   align-items: center;
   gap: 20rpx;
   margin-bottom: 16rpx;
-  box-shadow: 0 1rpx 8rpx rgba(0,0,0,0.03);
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.06);
+  border: 1rpx solid #eef0f2;
   transition: transform 0.15s;
 }
 
 .cert-card:active {
   transform: scale(0.98);
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.1);
 }
 
 /* 图标 */
@@ -151,7 +153,7 @@
 .cc-name {
   font-size: 30rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .cc-badge {
@@ -163,18 +165,18 @@
 }
 
 .cc-badge.normal {
-  background: #ECFDF5;
-  color: #10B981;
+  background: #D1FAE5;
+  color: #059669;
 }
 
 .cc-badge.warn {
-  background: #FFFBEB;
-  color: #F59E0B;
+  background: #FEF3C7;
+  color: #D97706;
 }
 
 .cc-badge.expired {
-  background: #FEF2F2;
-  color: #EF4444;
+  background: #FEE2E2;
+  color: #DC2626;
 }
 
 /* 时间线 */
@@ -187,52 +189,52 @@
 
 .cc-date-label {
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 .cc-date-label.permanent {
-  color: #10B981;
-  font-weight: 500;
+  color: #059669;
+  font-weight: 600;
 }
 
 .cc-arrow {
   font-size: 20rpx;
-  color: #c7c7cc;
+  color: #9ca3af;
 }
 
 .cc-countdown {
   font-size: 22rpx;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .cc-countdown.normal {
-  color: #10B981;
+  color: #059669;
 }
 
 .cc-countdown.warn {
-  color: #F59E0B;
+  color: #D97706;
 }
 
 .cc-countdown.expired {
-  color: #EF4444;
+  color: #DC2626;
 }
 
 .cc-date-simple {
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 /* 箭头 */
 .cc-arrow-end {
   font-size: 32rpx;
-  color: #ccc;
+  color: #9ca3af;
 }
 
 /* 空状态 & loading */
 .loading {
   text-align: center;
   padding: 40rpx;
-  color: #8e8e93;
+  color: #6b7280;
   font-size: 24rpx;
 }
 

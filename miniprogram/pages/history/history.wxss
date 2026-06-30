@@ -128,13 +128,13 @@
 }
 
 .card-snapshot .arrow {
-  color: #ccc;
+  color: #9ca3af;
   margin: 0 4rpx;
 }
 
 .loading-state {
   text-align: center;
   padding: 60rpx 40rpx;
-  color: #8e8e93;
+  color: #6b7280;
   font-size: 26rpx;
 }

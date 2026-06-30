@@ -3,19 +3,19 @@ page {
   background: #f5f6fa;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #1f2937;
   box-sizing: border-box;
   --primary: #6366F1;
   --primary-light: #EEF0FF;
   --primary-dark: #4F46E5;
-  --danger: #EF4444;
-  --warn: #F59E0B;
-  --success: #10B981;
+  --danger: #DC2626;
+  --warn: #D97706;
+  --success: #059669;
   --bg: #f5f6fa;
   --card: #ffffff;
-  --text: #1a1a1a;
-  --text-secondary: #8e8e93;
-  --border: #f0f0f0;
+  --text: #1f2937;
+  --text-secondary: #6b7280;
+  --border: #e5e7eb;
   --radius: 24rpx;
   --radius-lg: 36rpx;
   --gradient-start: #6366F1;
@@ -90,8 +90,9 @@ page {
 
 .header-sub {
   font-size: 24rpx;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.85);
   margin-top: 4rpx;
+  font-weight: 500;
 }
 
 .header-action {
@@ -101,21 +102,21 @@ page {
   align-items: center;
   justify-content: center;
   font-size: 24rpx;
-  color: #fff;
-  background: rgba(255,255,255,0.18);
+  color: #6366F1;
+  background: rgba(255,255,255,0.92);
   border-radius: 50%;
-  font-weight: 600;
+  font-weight: 700;
   flex-shrink: 0;
   margin-right: 178rpx;
 }
 
-.header-action:active { background: rgba(255,255,255,0.3); }
+.header-action:active { background: rgba(255,255,255,0.7); }
 
 /* ===== 统计条 ===== */
 .stats-bar {
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.18);
   border-radius: 20rpx;
   padding: 20rpx 0;
   margin-top: 24rpx;
@@ -135,14 +136,14 @@ page {
 
 .stats-label {
   font-size: 22rpx;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.85);
   margin-top: 6rpx;
 }
 
 .stats-divider {
   width: 2rpx;
   height: 44rpx;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.22);
 }
 
 /* ===== 通用卡片 ===== */
@@ -196,17 +197,17 @@ page {
 }
 
 .status-normal {
-  background: #ECFDF5;
+  background: #D1FAE5;
   color: var(--success);
 }
 
 .status-warn {
-  background: #FFFBEB;
+  background: #FEF3C7;
   color: var(--warn);
 }
 
 .status-expired {
-  background: #FEF2F2;
+  background: #FEE2E2;
   color: var(--danger);
 }
 

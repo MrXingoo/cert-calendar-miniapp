@@ -81,7 +81,7 @@
 .cm-name {
   font-size: 30rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1f2937;
   margin-bottom: 8rpx;
 }
 
@@ -99,7 +99,7 @@
 
 .cm-color-text {
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #6b7280;
   font-family: monospace;
 }
 
@@ -128,7 +128,7 @@
 .cm-empty {
   text-align: center;
   padding: 80rpx 40rpx;
-  color: #8e8e93;
+  color: #6b7280;
   font-size: 28rpx;
 }
 
@@ -142,10 +142,10 @@
   display: inline-block;
   padding: 16rpx 40rpx;
   font-size: 26rpx;
-  color: #8e8e93;
+  color: #6b7280;
   background: #fff;
   border-radius: 32rpx;
-  border: 2rpx solid #f0f0f0;
+  border: 2rpx solid #e5e7eb;
 }
 .cm-reset:active { background: #f7f8fa; }
 
@@ -179,18 +179,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 32rpx 32rpx 16rpx;
-  border-bottom: 1rpx solid #f0f0f0;
+  border-bottom: 1rpx solid #e5e7eb;
 }
 
 .cm-sheet-title {
   font-size: 32rpx;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .cm-sheet-close {
   font-size: 36rpx;
-  color: #8e8e93;
+  color: #6b7280;
   padding: 8rpx 16rpx;
 }
 
@@ -204,7 +204,7 @@
   display: flex;
   padding: 16rpx 24rpx 32rpx;
   gap: 16rpx;
-  border-top: 1rpx solid #f0f0f0;
+  border-top: 1rpx solid #e5e7eb;
 }
 
 .sheet-btn {
@@ -219,7 +219,7 @@
 }
 .sheet-btn.cancel {
   background: #f7f8fa;
-  color: #8e8e93;
+  color: #6b7280;
 }
 .sheet-btn.confirm {
   background: linear-gradient(135deg, #5B6EF5, #8B9CF7);
@@ -235,7 +235,7 @@
 .form-label {
   font-size: 26rpx;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #1f2937;
   margin-bottom: 12rpx;
 }
 
@@ -245,7 +245,7 @@
   border-radius: 16rpx;
   padding: 0 24rpx;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #1f2937;
   display: flex;
   align-items: center;
 }
@@ -266,7 +266,7 @@
 }
 .emoji-hint {
   font-size: 24rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 /* 颜色预览 */
@@ -294,7 +294,7 @@
 
 .picker-title {
   font-size: 24rpx;
-  color: #8e8e93;
+  color: #6b7280;
   margin-bottom: 12rpx;
 }
 
@@ -331,7 +331,7 @@
   border: 4rpx solid transparent;
 }
 .picker-color:active {
-  border-color: #1a1a1a;
+  border-color: #1f2937;
   transform: scale(1.1);
 }
 
@@ -346,7 +346,7 @@
 
 .color-input-label {
   font-size: 24rpx;
-  color: #8e8e93;
+  color: #6b7280;
   white-space: nowrap;
 }
 

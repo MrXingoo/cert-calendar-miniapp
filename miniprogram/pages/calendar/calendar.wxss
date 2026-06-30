@@ -16,7 +16,7 @@
   background: #fff;
   border-radius: 20rpx;
   padding: 10rpx 20rpx;
-  box-shadow: 0 1rpx 8rpx rgba(0,0,0,0.03);
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
 }
 
 .mt-arrow {
@@ -36,9 +36,9 @@
 .mt-label {
   flex: 1;
   text-align: center;
-  font-size: 26rpx;
+  font-size: 28rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 /* ===== 星期头 ===== */
@@ -51,8 +51,8 @@
   flex: 1;
   text-align: center;
   font-size: 24rpx;
-  color: #8e8e93;
-  font-weight: 500;
+  color: #6b7280;
+  font-weight: 600;
 }
 
 /* ===== 日历网格 ===== */
@@ -83,7 +83,7 @@
 
 .cal-cell.current {
   background: #fff;
-  box-shadow: 0 1rpx 3rpx rgba(0,0,0,0.03);
+  box-shadow: 0 1rpx 4rpx rgba(0,0,0,0.06);
 }
 
 .cal-cell.other { opacity: 0.3; }
@@ -122,8 +122,8 @@
 
 .cell-num {
   font-size: 28rpx;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-weight: 700;
+  color: #1f2937;
   line-height: 1;
   display: inline-flex;
   align-items: center;
@@ -132,12 +132,12 @@
   height: 44rpx;
 }
 
-.cell-num.holiday { color: #EF4444; }
+.cell-num.holiday { color: #DC2626; }
 
 /* 农历文字 - 固定高度，无内容也占位 */
 .cell-lunar {
   font-size: 18rpx;
-  color: #b0b0b0;
+  color: #787878;
   height: 26rpx;
   line-height: 26rpx;
   text-align: center;
@@ -148,8 +148,8 @@
 }
 
 .cell-lunar.holiday-text {
-  color: #EF4444;
-  font-weight: 500;
+  color: #DC2626;
+  font-weight: 600;
 }
 
 /* ===== 事件色条 ===== */
@@ -260,18 +260,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 28rpx 28rpx 14rpx;
-  border-bottom: 1rpx solid #f0f0f0;
+  border-bottom: 1rpx solid #e5e7eb;
 }
 
 .sheet-date {
   font-size: 32rpx;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .sheet-close {
   font-size: 36rpx;
-  color: #8e8e93;
+  color: #6b7280;
   padding: 8rpx 16rpx;
 }
 
@@ -285,7 +285,7 @@
   display: flex;
   align-items: center;
   padding: 22rpx 0;
-  border-bottom: 1rpx solid #f7f7f7;
+  border-bottom: 1rpx solid #f3f4f6;
   gap: 18rpx;
 }
 
@@ -306,23 +306,23 @@
 .sheet-title {
   font-size: 30rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .sheet-range {
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 .sheet-arrow {
   font-size: 32rpx;
-  color: #ccc;
+  color: #9ca3af;
 }
 
 .sheet-empty {
   text-align: center;
   padding: 60rpx 0;
-  color: #8e8e93;
+  color: #6b7280;
   font-size: 28rpx;
 }
 
@@ -332,7 +332,7 @@
   font-size: 30rpx;
   font-weight: 600;
   color: #6366F1;
-  border-top: 1rpx solid #f0f0f0;
+  border-top: 1rpx solid #e5e7eb;
 }
 
 .sheet-add:active { background: #f7f8fa; }

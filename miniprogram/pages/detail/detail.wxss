@@ -81,7 +81,7 @@ page {
 .cert-name {
   font-size: 40rpx;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .badge {
@@ -102,7 +102,7 @@ page {
 
 .cd-label {
   font-size: 26rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 /* 信息卡片 */
@@ -128,12 +128,12 @@ page {
 
 .info-key {
   font-size: 26rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 .info-val {
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #1f2937;
   font-weight: 500;
 }
 
@@ -155,7 +155,7 @@ page {
 .sec-title {
   font-size: 28rpx;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1f2937;
 }
 
 .sec-link {
@@ -180,7 +180,7 @@ page {
 
 .hist-time {
   font-size: 24rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 .hist-ver {
@@ -209,7 +209,7 @@ page {
 .no-hist {
   text-align: center;
   padding: 32rpx;
-  color: #c7c7cc;
+  color: #9ca3af;
   font-size: 26rpx;
 }
 
@@ -228,7 +228,7 @@ page {
   padding: 24rpx 32rpx;
   padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
   background: #fff;
-  border-top: 2rpx solid #f0f0f0;
+  border-top: 2rpx solid #e5e7eb;
   z-index: 100;
   box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.06);
 }

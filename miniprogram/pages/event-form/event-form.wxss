@@ -17,7 +17,7 @@
 .section-title {
   font-size: 26rpx;
   font-weight: 600;
-  color: #8e8e93;
+  color: #6b7280;
   margin-bottom: 20rpx;
   text-transform: uppercase;
   letter-spacing: 2rpx;
@@ -71,7 +71,7 @@
 
 .cat-item.active {
   font-weight: 600;
-  color: #1a1a1a;
+  color: #1f2937;
   box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
 }
 
@@ -95,7 +95,7 @@
   margin-top: 16rpx;
   padding: 12rpx 0 4rpx;
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #6b7280;
   line-height: 1.4;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .color-swatch.active {
-  border-color: #1a1a1a;
+  border-color: #1f2937;
   transform: scale(1.15);
 }
 
@@ -129,7 +129,7 @@
 
 .cc-label {
   font-size: 24rpx;
-  color: #8e8e93;
+  color: #6b7280;
 }
 
 .cc-input {
@@ -156,7 +156,7 @@
 .label {
   font-size: 26rpx;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #1f2937;
   margin-bottom: 12rpx;
 }
 
@@ -166,7 +166,7 @@
 }
 
 .label .opt {
-  color: #8e8e93;
+  color: #6b7280;
   font-weight: 400;
   font-size: 22rpx;
   margin-left: 8rpx;
@@ -178,7 +178,7 @@
   border-radius: 16rpx;
   padding: 0 24rpx;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #1f2937;
   display: flex;
   align-items: center;
 }
@@ -194,7 +194,7 @@
   border-radius: 16rpx;
   padding: 20rpx 24rpx;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #1f2937;
   box-sizing: border-box;
 }
 

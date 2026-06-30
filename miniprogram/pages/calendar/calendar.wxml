@@ -10,11 +10,12 @@
         <text wx:else class="ph">◉</text>
         <button class="header-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
       </view>
-      <view class="cal-nav-arrow" bindtap="prevMonth">‹</view>
       <view class="header-info">
-        <view class="header-title">{{currentYear}}年{{currentMonth}}月</view>
+        <view class="header-title">工作日历</view>
+        <view class="header-date">{{currentYear}}年{{currentMonth}}月</view>
         <view class="header-sub">{{lunarMonthText}} · {{ganZhiYear}}年</view>
       </view>
+      <view class="cal-nav-arrow" bindtap="prevMonth">‹</view>
       <view class="cal-nav-arrow" bindtap="nextMonth">›</view>
       <view class="header-action" bindtap="goToday">今</view>
     </view>

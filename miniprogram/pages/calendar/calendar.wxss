@@ -22,6 +22,15 @@
 }
 .cal-nav-arrow:active { background: rgba(255,255,255,0.15); }
 
+/* 公历日期 - 略大 */
+.header-date {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  margin: 4rpx 0;
+  line-height: 1.3;
+}
+
 /* ===== 星期头 ===== */
 .weekday-header {
   display: flex;

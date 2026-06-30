@@ -209,13 +209,13 @@ Page({
       if (statCat2 && evts.some(e => e.categoryId === statCat2)) d2++;
     }
     // 生成分类信息（供 wxml 显示）
-    const cat1 = categories.find(c => c.id === statCat1) || { name: '未选择', icon: '○', color: '#fff' };
-    const cat2 = categories.find(c => c.id === statCat2) || { name: '未选择', icon: '○', color: '#fff' };
+    const cat1 = categories.find(c => c.id === statCat1) || { name: '未选择', color: '#fff' };
+    const cat2 = categories.find(c => c.id === statCat2) || { name: '未选择', color: '#fff' };
     this.setData({
       statDays1: d1,
       statDays2: d2,
-      statCat1Info: { name: cat1.name, icon: cat1.icon, color: cat1.color },
-      statCat2Info: { name: cat2.name, icon: cat2.icon, color: cat2.color },
+      statCat1Info: { name: cat1.name, color: cat1.color },
+      statCat2Info: { name: cat2.name, color: cat2.color },
     });
   },
 
@@ -226,7 +226,7 @@ Page({
     const currentId = slot === '1' ? this.data.statCat1 : this.data.statCat2;
     const itemList = cats.map(c => {
       const days = this._countDaysForCat(c.id);
-      return `${c.icon} ${c.name}（${days}天）`;
+      return `${c.name}（${days}天）`;
     });
     wx.showActionSheet({
       itemList,

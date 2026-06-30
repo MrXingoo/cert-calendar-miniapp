@@ -40,14 +40,14 @@ function getColor(emoji) {
 }
 
 // ===== 事件分类配置 =====
-// 第五套：纯几何符号
+// 第五套：纯文本，无图标
 
 const DEFAULT_CATEGORIES = [
-  { id: 'work',     name: '工作',   color: '#DC2626', icon: '⬢' },
-  { id: 'vacation', name: '休假',   color: '#059669', icon: '◎' },
-  { id: 'exam',     name: '考试',   color: '#6366F1', icon: '◆' },
-  { id: 'personal', name: '个人',   color: '#D97706', icon: '◉' },
-  { id: 'cert',     name: '证照',   color: '#8B5CF6', icon: '▣' },
+  { id: 'work',     name: '工作',   color: '#DC2626' },
+  { id: 'vacation', name: '休假',   color: '#059669' },
+  { id: 'exam',     name: '考试',   color: '#6366F1' },
+  { id: 'personal', name: '个人',   color: '#D97706' },
+  { id: 'cert',     name: '证照',   color: '#8B5CF6' },
 ];
 
 const CATEGORY_STORAGE_KEY = 'event_categories_v1';
@@ -72,7 +72,7 @@ function addCategory(cat) {
   while (list.find(c => c.id === id)) {
     id = 'cat_' + Date.now() + Math.floor(Math.random() * 1000);
   }
-  const newCat = { id, name: cat.name || '新分类', color: cat.color || '#6366F1', icon: cat.icon || '●' };
+  const newCat = { id, name: cat.name || '新分类', color: cat.color || '#6366F1' };
   list.push(newCat);
   saveCategories(list);
   return newCat;
@@ -121,17 +121,9 @@ const COLOR_PALETTE = [
 ];
 
 /**
- * 第五套图标：纯 Unicode 几何形状，30个
- * 风格统一扁平，无 emoji 平台差异
+ * 第五套：纯文本分类，无图标列表
  */
-const EMOJI_OPTIONS = [
-  '⬢', '◎', '◆', '◉', '▣',
-  '▤', '◈', '▸', '▥', '⬡',
-  '△', '★', '⚡', '⬟', '▦',
-  '◇', '○', '□', '▵', '⬒',
-  '⬔', '▹', '⬕', '◬', '◎',
-  '✦', '⬖', '▻', '◧', '⬗',
-];
+const EMOJI_OPTIONS = [];
 
 module.exports = {
   COLOR_MAP, EMOJI_RULES, guessEmoji, getColor,

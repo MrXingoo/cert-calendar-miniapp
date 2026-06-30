@@ -25,13 +25,6 @@
       <view class="stats-label">即将到期 ▾</view>
     </view>
   </view>
-
-  <!-- 搜索栏嵌入渐变底部 -->
-  <view class="header-search">
-    <text class="hs-icon">🔍</text>
-    <input class="hs-input" placeholder="搜索证照..." value="{{keyword}}" bindinput="onSearchInput" />
-    <text class="hs-clear" wx:if="{{keyword}}" bindtap="clearSearch">✕</text>
-  </view>
 </view>
 
 <!-- 下拉菜单 -->
@@ -55,7 +48,9 @@
 <view class="cert-list">
   <view class="cert-card" wx:for="{{certList}}" wx:key="_id"
         bindtap="goDetail" data-id="{{item._id}}">
-    <view class="cc-icon" style="background:{{item._color}}12">
+    <image wx:if="{{item.images && item.images.length > 0}}"
+           src="{{item.images[0]}}" class="cc-thumb" mode="aspectFill" />
+    <view wx:else class="cc-thumb placeholder">
       <text>{{item.emoji || '●'}}</text>
     </view>
     <view class="cc-body">
@@ -63,7 +58,6 @@
         <text class="cc-name">{{item.name}}</text>
         <view class="cc-badge {{item._status.type}}">{{item._status.text}}</view>
       </view>
-      <!-- 时间线 + 倒计时 -->
       <view class="cc-timeline" wx:if="{{item.obtainDate || item.expireDate}}">
         <text wx:if="{{item.obtainDate}}" class="cc-date-label">取证 {{item.obtainDate}}</text>
         <text wx:if="{{item.obtainDate && (item.expireDate || item.isPermanent)}}" class="cc-arrow">→</text>
@@ -75,13 +69,13 @@
         <text>{{item.isPermanent ? '永久有效' : '到期 ' + item.expireDate}}</text>
       </view>
     </view>
-    <view class="cc-arrow">›</view>
+    <view class="cc-arrow-end">›</view>
   </view>
 
   <view class="empty-state" wx:if="{{!loading && certList.length === 0}}">
     <view class="icon">◇</view>
     <view class="text">暂无证照</view>
-    <view style="font-size:24rpx;color:#8e8e93;margin-top:8rpx">点击右下角 + 添加</view>
+    <view style="font-size:24rpx;color:#6b7280;margin-top:8rpx">点击右下角 + 添加</view>
   </view>
 
   <view class="loading" wx:if="{{loading}}">加载中...</view>

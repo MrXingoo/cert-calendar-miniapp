@@ -21,12 +21,12 @@
     <view class="stats-bar">
       <view class="stats-item" bindtap="onStatCatTap" data-slot="1">
         <view class="stats-num" style="color:{{statCat1Info.color}}">{{statDays1}}</view>
-        <view class="stats-label">{{statCat1Info.icon}} {{statCat1Info.name}}</view>
+        <view class="stats-label">{{statCat1Info.name}}</view>
       </view>
       <view class="stats-divider"></view>
       <view class="stats-item" bindtap="onStatCatTap" data-slot="2">
         <view class="stats-num" style="color:{{statCat2Info.color}}">{{statDays2}}</view>
-        <view class="stats-label">{{statCat2Info.icon}} {{statCat2Info.name}}</view>
+        <view class="stats-label">{{statCat2Info.name}}</view>
       </view>
     </view>
   </view>

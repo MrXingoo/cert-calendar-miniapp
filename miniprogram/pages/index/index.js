@@ -25,17 +25,12 @@ Page({
     ],
     keyword: '',
     statusBarHeight: 44,
-    headerRightPad: 0,
   },
 
   onLoad() {
     const sys = wx.getWindowInfo();
-    // 胶囊按钮右边缘距屏幕右边缘的距离 = 屏幕宽 - 胶囊右边
-    const menuRect = wx.getMenuButtonBoundingClientRect();
-    const rightPad = sys.screenWidth - menuRect.right + 20; // 20rpx 额外间距
     this.setData({
       statusBarHeight: sys.statusBarHeight || 44,
-      headerRightPad: Math.max(rightPad, 16),
     });
   },
 
@@ -69,18 +64,12 @@ Page({
   },
 
   async loadCertList() {
-    const { filterStatus, warnDays, keyword } = this.data;
+    const { filterStatus, warnDays } = this.data;
     try {
       let list = await db.getCertList(
         null,
         filterStatus === 'warn' ? warnDays : null
       );
-
-      // 关键词搜索
-      if (keyword && keyword.trim()) {
-        const kw = keyword.trim().toLowerCase();
-        list = list.filter(c => c.name.toLowerCase().includes(kw));
-      }
 
       list = list.map(cert => ({
         ...cert,
@@ -95,16 +84,6 @@ Page({
   },
 
   // 搜索
-  onSearchInput(e) {
-    this.setData({ keyword: e.detail.value });
-    this.loadCertList();
-  },
-
-  clearSearch() {
-    this.setData({ keyword: '' });
-    this.loadCertList();
-  },
-
   onFilterTap() {
     this.setData({ filterStatus: 'all', filterText: '', showDropdown: false });
     this.loadCertList();

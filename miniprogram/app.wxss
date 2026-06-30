@@ -118,7 +118,7 @@ page {
   align-items: center;
   background: rgba(255,255,255,0.18);
   border-radius: 20rpx;
-  padding: 20rpx 0;
+  padding: 28rpx 0;
   margin-top: 24rpx;
 }
 
@@ -128,21 +128,22 @@ page {
 }
 
 .stats-num {
-  font-size: 44rpx;
+  font-size: 56rpx;
   font-weight: 700;
   color: #fff;
   line-height: 1;
 }
 
 .stats-label {
-  font-size: 22rpx;
+  font-size: 26rpx;
   color: rgba(255,255,255,0.85);
-  margin-top: 6rpx;
+  margin-top: 8rpx;
+  font-weight: 500;
 }
 
 .stats-divider {
   width: 2rpx;
-  height: 44rpx;
+  height: 56rpx;
   background: rgba(255,255,255,0.22);
 }
 

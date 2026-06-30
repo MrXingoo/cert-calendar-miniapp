@@ -209,7 +209,6 @@ Page({
         title: formData.title.trim(),
         categoryId: formData.categoryId,
         categoryName: cat ? cat.name : '',
-        categoryIcon: cat ? cat.icon : '',
         // 颜色自动跟分类走
         color: cat ? cat.color : '#5B6EF5',
         startDate: formData.startDate,

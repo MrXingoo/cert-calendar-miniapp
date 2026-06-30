@@ -24,7 +24,6 @@
             wx:for="{{categories}}" wx:key="id"
             bindtap="selectCategory" data-id="{{item.id}}"
             style="{{formData.categoryId===item.id?'border-color:'+item.color+';background:'+item.color+'12':''}}">
-        <view class="cat-icon" wx:if="{{item.icon}}" style="font-size:32rpx;">{{item.icon}}</view>
         <view class="cat-dot" style="background:{{item.color}}"></view>
         <text class="cat-name">{{item.name}}</text>
       </view>

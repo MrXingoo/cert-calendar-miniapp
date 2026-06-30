@@ -1,13 +1,13 @@
 // utils/config.js - 共享常量配置
 
 // ===== 证照相关 =====
-// 第三套 emoji：极简符号风格，高辨识度，非拟物
+// 第四套：线条几何风格，优先选轮廓/线形符号
 
 const COLOR_MAP = {
   '🆔': '#6366F1', '🛂': '#10B981', '🚙': '#F59E0B', '🎓': '#8B9CF7',
-  '💳': '#EF4444', '📃': '#F59E0B', '🏥': '#10B981', '🛡': '#1E293B',
-  '🏠': '#EA580C', '🛫': '#14B8A6', '⚓': '#2563EB', '⚡': '#DC2626',
-  '🏅': '#8B5CF6', '🧾': '#64748B', '📋': '#8e8e93',
+  '💳': '#EF4444', '🏷': '#F59E0B',  '💊': '#10B981', '🛡': '#1E293B',
+  '🏠': '#EA580C', '✈': '#14B8A6',  '⚓': '#2563EB', '⚡': '#DC2626',
+  '♢': '#8B5CF6',  '🧾': '#64748B', '○': '#8e8e93',
 };
 
 const EMOJI_RULES = [
@@ -16,23 +16,23 @@ const EMOJI_RULES = [
   [['驾照', '驾驶证', '行驶证', '机动车'], '🚙'],
   [['毕业', '学位', '学历'], '🎓'],
   [['社保', '医保', '社保卡'], '💳'],
-  [['营业执照', '执照', '经营'], '📃'],
-  [['健康', '体检', '健康证'], '🏥'],
+  [['营业执照', '执照', '经营'], '🏷'],
+  [['健康', '体检', '健康证'], '💊'],
   [['保险', '保单'], '🛡'],
   [['房产', '不动产', '房屋'], '🏠'],
-  [['签证', 'visa', '出境'], '🛫'],
+  [['签证', 'visa', '出境'], '✈'],
   [['海员', '适任', '船员'], '⚓'],
   [['特种', '操作', '安全'], '⚡'],
-  [['资格', '执业', '从业'], '🏅'],
+  [['资格', '执业', '从业'], '♢'],
   [['发票', '票据', '收据'], '🧾'],
 ];
 
 function guessEmoji(name) {
-  if (!name) return '📋';
+  if (!name) return '○';
   for (const [keys, emoji] of EMOJI_RULES) {
     if (keys.some(k => name.includes(k))) return emoji;
   }
-  return '📋';
+  return '○';
 }
 
 function getColor(emoji) {
@@ -40,13 +40,13 @@ function getColor(emoji) {
 }
 
 // ===== 事件分类配置 =====
-// 第三套：极简几何符号
+// 第四套：线形几何符号
 
 const DEFAULT_CATEGORIES = [
   { id: 'work',     name: '工作',   color: '#EF4444', icon: '⚙️' },
-  { id: 'vacation', name: '休假',   color: '#10B981', icon: '⛱️' },
-  { id: 'exam',     name: '考试',   color: '#6366F1', icon: '✒️' },
-  { id: 'personal', name: '个人',   color: '#F59E0B', icon: '☺' },
+  { id: 'vacation', name: '休假',   color: '#10B981', icon: '☀' },
+  { id: 'exam',     name: '考试',   color: '#6366F1', icon: '✏' },
+  { id: 'personal', name: '个人',   color: '#F59E0B', icon: '♡' },
   { id: 'cert',     name: '证照',   color: '#8B5CF6', icon: '🆔' },
 ];
 
@@ -72,7 +72,7 @@ function addCategory(cat) {
   while (list.find(c => c.id === id)) {
     id = 'cat_' + Date.now() + Math.floor(Math.random() * 1000);
   }
-  const newCat = { id, name: cat.name || '新分类', color: cat.color || '#6366F1', icon: cat.icon || '●' };
+  const newCat = { id, name: cat.name || '新分类', color: cat.color || '#6366F1', icon: cat.icon || '○' };
   list.push(newCat);
   saveCategories(list);
   return newCat;
@@ -113,9 +113,6 @@ function getCategoryName(catId, list) {
   return cat ? cat.name : '未分类';
 }
 
-/**
- * 常用色板（用户选色用）
- */
 const COLOR_PALETTE = [
   '#EF4444', '#F97316', '#F59E0B', '#EAB308', '#84CC16',
   '#10B981', '#14B8A6', '#06B6D4', '#3B82F6', '#6366F1',
@@ -124,15 +121,15 @@ const COLOR_PALETTE = [
 ];
 
 /**
- * 第三套图标列表：极简符号，30个
+ * 第四套图标：线条几何风格，30个
  */
 const EMOJI_OPTIONS = [
-  '⚙️', '⛱️', '✒️', '☺',  '🆔',
-  '💬', '🔔', '⏰', '📍', '🏠',
-  '🛫', '💊', '💰', '🎓', '📞',
-  '🎯', '🔥', '❤️', '⭐', '💡',
-  '📅', '🏃', '💪', '🎵', '🎉',
-  '🎁', '☕', '🚙', '🌟', '🔑',
+  '⚙️', '☀',  '✏',  '♡',  '🆔',
+  '💬',  '🔔', '⌚',  '📍', '🏠',
+  '✈',   '💊', '💰', '🎓', '☎',
+  '🎯', '🔥', '☆',  '⬡',  '💡',
+  '☕',  '🚙', '📅', '🏃', '💪',
+  '🎵', '🎉', '🎁', '♻',  '🔑',
 ];
 
 module.exports = {

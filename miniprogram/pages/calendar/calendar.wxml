@@ -7,7 +7,7 @@
     <view class="header-row">
       <view class="header-avatar">
         <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" mode="aspectFill" />
-        <text wx:else class="ph">☺</text>
+        <text wx:else class="ph">○</text>
         <button class="header-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
       </view>
       <view class="header-info">

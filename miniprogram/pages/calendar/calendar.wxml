@@ -10,10 +10,12 @@
         <text wx:else class="ph">◉</text>
         <button class="header-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
       </view>
+      <view class="cal-nav-arrow" bindtap="prevMonth">‹</view>
       <view class="header-info">
-        <view class="header-title">月历</view>
-        <view class="header-sub">{{currentYear}}年{{currentMonth}}月</view>
+        <view class="header-title">{{currentYear}}年{{currentMonth}}月</view>
+        <view class="header-sub">{{lunarMonthText}} · {{ganZhiYear}}年</view>
       </view>
+      <view class="cal-nav-arrow" bindtap="nextMonth">›</view>
       <view class="header-action" bindtap="goToday">今</view>
     </view>
 
@@ -31,21 +33,14 @@
     </view>
   </view>
 
-  <!-- 月份切换工具条 -->
-  <view class="month-toolbar">
-    <view class="mt-arrow" bindtap="prevMonth">‹</view>
-    <view class="mt-label">{{lunarMonthText}} · {{ganZhiYear}}年（{{animal}}年）</view>
-    <view class="mt-arrow" bindtap="nextMonth">›</view>
-  </view>
-
   <!-- 星期头 -->
   <view class="weekday-header">
     <text class="wd-item" wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="*this"
           style="{{index===5||index===6?'color:#EF4444':''}}">{{item}}</text>
   </view>
 
-  <!-- 日历网格 -->
-  <view class="cal-body">
+  <!-- 日历网格（左右滑动切月） -->
+  <view class="cal-body" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
     <view class="cal-row" wx:for="{{weeks}}" wx:key="index" wx:for-item="week">
       <view class="cal-cell {{item.isCurrentMonth?'current':'other'}} {{item.isToday?'today':''}}"
             wx:for="{{week}}" wx:key="fullDate" wx:for-item="item"

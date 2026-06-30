@@ -290,6 +290,15 @@ Page({
     this.loadEvents();
   },
 
+  // 左右滑动切换月份
+  onTouchStart(e) { this._startX = e.touches[0].clientX; },
+
+  onTouchEnd(e) {
+    const dx = e.changedTouches[0].clientX - this._startX;
+    if (dx > 60) this.prevMonth();
+    else if (dx < -60) this.nextMonth();
+  },
+
   // ========== 交互 ==========
 
   onDayTap(e) {

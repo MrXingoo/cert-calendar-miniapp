@@ -17,18 +17,16 @@
       <view class="header-action" bindtap="goToday">今</view>
     </view>
 
-    <!-- 分类统计（点击筛选，长按换分类） -->
+    <!-- 分类统计（点击切换分类） -->
     <view class="stats-bar">
-      <view class="stats-item {{filterActive1 ? 'active' : ''}}" bindtap="onFilterToggle" data-slot="1" bindlongpress="onStatCatTap" data-slot="1">
+      <view class="stats-item" bindtap="onStatCatTap" data-slot="1">
         <view class="stats-num" style="color:{{statCat1Info.color}}">{{statDays1}}</view>
         <view class="stats-label">{{statCat1Info.icon}} {{statCat1Info.name}}</view>
-        <view class="stats-check" wx:if="{{filterActive1}}">✓</view>
       </view>
       <view class="stats-divider"></view>
-      <view class="stats-item {{filterActive2 ? 'active' : ''}}" bindtap="onFilterToggle" data-slot="2" bindlongpress="onStatCatTap" data-slot="2">
+      <view class="stats-item" bindtap="onStatCatTap" data-slot="2">
         <view class="stats-num" style="color:{{statCat2Info.color}}">{{statDays2}}</view>
         <view class="stats-label">{{statCat2Info.icon}} {{statCat2Info.name}}</view>
-        <view class="stats-check" wx:if="{{filterActive2}}">✓</view>
       </view>
     </view>
   </view>

@@ -30,8 +30,6 @@ Page({
     statCat2: '',
     statDays1: 0,
     statDays2: 0,
-    filterActive1: false,   // 筛选是否激活
-    filterActive2: false,
     avatarUrl: '',
   },
 
@@ -120,21 +118,11 @@ Page({
 
     // 匹配事件到日期格子
     const eventMap = this.data.eventMap;
-    const { filterActive1, filterActive2, statCat1, statCat2 } = this.data;
     for (const cell of cells) {
       if (!cell.isCurrentMonth) continue;
       const key = cell.fullDate;
       if (eventMap[key]) {
-        let evts = eventMap[key];
-        // 应用筛选：任一激活则只显示对应分类
-        if (filterActive1 || filterActive2) {
-          evts = evts.filter(evt => {
-            if (filterActive1 && evt.categoryId === statCat1) return true;
-            if (filterActive2 && evt.categoryId === statCat2) return true;
-            return false;
-          });
-        }
-        cell.events = evts.map(evt => {
+        cell.events = eventMap[key].map(evt => {
           // 跨天事件标记
           const startStr = evt.startDate;
           const endStr = evt.endDate || evt.startDate;
@@ -231,7 +219,7 @@ Page({
     });
   },
 
-  // 点击统计卡片，选择分类（长按触发）
+  // 点击统计卡片，选择分类
   onStatCatTap(e) {
     const slot = e.currentTarget.dataset.slot; // '1' or '2'
     const cats = this.data.categories;
@@ -258,19 +246,8 @@ Page({
           wx.setStorageSync(STAT_CAT_KEY, [this.data.statCat1, this.data.statCat2]);
         } catch (e) {}
         this.calcStatDays();
-        this.buildCalendar();
       },
     });
-  },
-
-  // 点击统计卡片切换筛选开关
-  onFilterToggle(e) {
-    const slot = e.currentTarget.dataset.slot;
-    const key = slot === '1' ? 'filterActive1' : 'filterActive2';
-    const catId = slot === '1' ? this.data.statCat1 : this.data.statCat2;
-    if (!catId) return;
-    this.setData({ [key]: !this.data[key] });
-    this.buildCalendar();
   },
 
   // 辅助：计算某分类本月天数

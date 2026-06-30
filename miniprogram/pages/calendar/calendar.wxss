@@ -78,7 +78,7 @@
   border-radius: 12rpx;
   position: relative;
   min-width: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .cal-cell.current {
@@ -154,14 +154,13 @@
 
 /* ===== 事件色条 ===== */
 .cell-events {
-  width: calc(100% + 8rpx);
-  margin-left: -4rpx;
+  width: 100%;
   margin-top: 2rpx;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rpx;
-  overflow: visible;
+  overflow: hidden;
   justify-content: flex-start;
 }
 
@@ -173,30 +172,15 @@
   align-items: center;
   padding: 0 6rpx;
   overflow: hidden;
-  border-radius: 0;
-  opacity: 0.92;
+  border-radius: 6rpx;
+  opacity: 0.95;
   flex-shrink: 0;
 }
 
-.event-bar.evt-single { border-radius: 6rpx; }
-
-.event-bar.evt-start {
-  border-radius: 6rpx 0 0 6rpx;
-  width: calc(100% + 4rpx);
-}
-
-.event-bar.evt-middle {
-  border-radius: 0;
-  width: calc(100% + 8rpx);
-  margin: 0 -4rpx;
-  padding: 0 0;
-}
-
-.event-bar.evt-end {
-  border-radius: 0 6rpx 6rpx 0;
-  width: calc(100% + 4rpx);
-  margin-left: -4rpx;
-}
+/* 跨天连续：去掉圆角实现视觉连接 */
+.event-bar.evt-start  { border-radius: 6rpx 0 0 6rpx; }
+.event-bar.evt-middle { border-radius: 0; }
+.event-bar.evt-end    { border-radius: 0 6rpx 6rpx 0; }
 
 .bar-text {
   font-size: 22rpx;

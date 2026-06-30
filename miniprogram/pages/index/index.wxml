@@ -4,7 +4,7 @@
   <view class="header-row">
     <view class="header-avatar">
       <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" mode="aspectFill" />
-      <text wx:else class="ph">○</text>
+      <text wx:else class="ph">◉</text>
       <button class="header-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
     </view>
     <view class="header-info">
@@ -56,7 +56,7 @@
   <view class="cert-card" wx:for="{{certList}}" wx:key="_id"
         bindtap="goDetail" data-id="{{item._id}}">
     <view class="cc-icon" style="background:{{item._color}}12">
-      <text>{{item.emoji || '📋'}}</text>
+      <text>{{item.emoji || '●'}}</text>
     </view>
     <view class="cc-body">
       <view class="cc-top">
@@ -79,7 +79,7 @@
   </view>
 
   <view class="empty-state" wx:if="{{!loading && certList.length === 0}}">
-    <view class="icon">◻</view>
+    <view class="icon">◇</view>
     <view class="text">暂无证照</view>
     <view style="font-size:24rpx;color:#8e8e93;margin-top:8rpx">点击右下角 + 添加</view>
   </view>

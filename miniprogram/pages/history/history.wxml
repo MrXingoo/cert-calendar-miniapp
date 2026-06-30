@@ -28,7 +28,7 @@
   </view>
 
   <view class="empty-state" wx:if="{{!loading && historyList.length === 0}}">
-    <view class="icon">📋</view>
+    <view class="icon">◇</view>
     <view class="text">暂无变更记录</view>
   </view>
 </view>

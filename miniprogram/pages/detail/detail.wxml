@@ -10,7 +10,7 @@
       </swiper-item>
     </swiper>
     <view class="img-empty" wx:else>
-      <text class="img-empty-icon">{{cert.emoji || '📋'}}</text>
+      <text class="img-empty-icon">{{cert.emoji || '●'}}</text>
     </view>
     <view class="back-btn" style="top:{{statusBarHeight + 8}}px" bindtap="goBack">←</view>
   </view>

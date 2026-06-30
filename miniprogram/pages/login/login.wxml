@@ -2,26 +2,26 @@
 <view class="login-page">
   <view class="login-bg"></view>
   <view class="login-content">
-    <view class="login-logo">◇</view>
+    <view class="login-logo">▣</view>
     <view class="login-title">证照清单</view>
     <view class="login-desc">安全管理您的个人证照</view>
 
     <view class="features">
       <view class="feat">
-        <view class="feat-circle" style="background:#ECFDF5">
-          <text>🛡</text>
+        <view class="feat-circle" style="background:#D1FAE5">
+          <text>◉</text>
         </view>
         <text>隐私安全</text>
       </view>
       <view class="feat">
         <view class="feat-circle" style="background:#EEF0FF">
-          <text>□</text>
+          <text>▤</text>
         </view>
         <text>分类管理</text>
       </view>
       <view class="feat">
-        <view class="feat-circle" style="background:#FFFBEB">
-          <text>⏰</text>
+        <view class="feat-circle" style="background:#FEF3C7">
+          <text>⚡</text>
         </view>
         <text>到期提醒</text>
       </view>

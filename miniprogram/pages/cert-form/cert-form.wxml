@@ -11,7 +11,7 @@
         <view class="dd-hint">已有证照，点击更新</view>
         <view class="dd-cert" wx:for="{{filteredCerts}}" wx:key="_id"
               bindtap="selectCert" data-id="{{item._id}}">
-          <text class="dd-emoji">{{item.emoji || '📋'}}</text>
+          <text class="dd-emoji">{{item.emoji || '●'}}</text>
           <text class="dd-name">{{item.name}}</text>
           <text class="dd-arrow">›</text>
         </view>

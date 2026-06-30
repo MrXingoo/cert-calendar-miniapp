@@ -13,7 +13,6 @@
     </view>
   </view>
 
-  <!-- 统计 -->
   <view class="stats-bar">
     <view class="stats-item" bindtap="onFilterTap" data-status="all">
       <view class="stats-num">{{stats.total}}</view>
@@ -49,21 +48,21 @@
   <view class="cert-card" wx:for="{{certList}}" wx:key="_id"
         bindtap="goDetail" data-id="{{item._id}}">
     <image wx:if="{{item.images && item.images.length > 0}}"
-           src="{{item.images[0]}}" class="cc-thumb" mode="aspectFill" />
+           src="{{item.images[0]}}" class="cc-thumb" mode="aspectFill"
+           catchtap="previewThumb" data-images="{{item.images}}" data-index="0" />
     <view wx:else class="cc-thumb placeholder">
       <text>{{item.emoji || '●'}}</text>
     </view>
     <view class="cc-body">
       <view class="cc-top">
         <text class="cc-name">{{item.name}}</text>
-        <view class="cc-badge {{item._status.type}}">{{item._status.text}}</view>
+        <text wx:if="{{item._status.countdown}}" class="cc-countdown {{item._status.type}}">{{item._status.countdown}}</text>
       </view>
       <view class="cc-timeline" wx:if="{{item.obtainDate || item.expireDate}}">
         <text wx:if="{{item.obtainDate}}" class="cc-date-label">取证 {{item.obtainDate}}</text>
         <text wx:if="{{item.obtainDate && (item.expireDate || item.isPermanent)}}" class="cc-arrow">→</text>
         <text wx:if="{{item.isPermanent}}" class="cc-date-label permanent">永久有效</text>
         <text wx:elif="{{item.expireDate}}" class="cc-date-label">到期 {{item.expireDate}}</text>
-        <text wx:if="{{item._status.countdown}}" class="cc-countdown {{item._status.type}}">· {{item._status.countdown}}</text>
       </view>
       <view class="cc-date-simple" wx:elif="{{item.expireDate || item.isPermanent}}">
         <text>{{item.isPermanent ? '永久有效' : '到期 ' + item.expireDate}}</text>
@@ -81,7 +80,6 @@
   <view class="loading" wx:if="{{loading}}">加载中...</view>
 </view>
 
-<!-- 悬浮按钮 -->
 <view class="fab" bindtap="goAdd">
   <text>+</text>
 </view>

@@ -129,6 +129,14 @@ Page({
     wx.navigateTo({ url: '/pages/cert-form/cert-form' });
   },
 
+  previewThumb(e) {
+    const images = e.currentTarget.dataset.images;
+    const idx = parseInt(e.currentTarget.dataset.index) || 0;
+    if (images && images.length > 0) {
+      wx.previewImage({ urls: images, current: images[idx] });
+    }
+  },
+
   onChooseAvatar(e) {
     const url = e.detail.avatarUrl;
     if (url) {

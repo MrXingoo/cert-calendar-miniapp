@@ -7,6 +7,34 @@
   flex-direction: column;
 }
 
+/* ===== 筛选激活态 ===== */
+.stats-item.active {
+  position: relative;
+  background: rgba(255,255,255,0.25);
+  border-radius: 16rpx;
+  padding: 6rpx 0;
+  margin: -6rpx 0;
+}
+
+.stats-item.active .stats-num {
+  text-shadow: 0 0 12rpx rgba(255,255,255,0.4);
+}
+
+.stats-check {
+  position: absolute;
+  top: 4rpx;
+  right: 8rpx;
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 18rpx;
+  color: #fff;
+  background: rgba(255,255,255,0.35);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
 /* ===== 月份切换工具条 ===== */
 .month-toolbar {
   display: flex;
